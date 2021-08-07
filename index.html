@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>reveal.js</title>
+  <style>
+
+    @font-face {
+      font-family: 'Dancing Script';
+      src: url(./fonts/DancingScript-VariableFont_wght.ttf);
+    }
+    @font-face {
+      font-family: 'Cascadia Code';
+      src: url(./fonts/CascadiaCode.ttf);
+    }
+    @font-face {
+      font-family: 'StalinistOne';
+      src: url(./fonts/StalinistOne.ttf);
+    }
+    @font-face {
+      font-family: 'Merriweather';
+      src: url(./fonts/Merriweather-Regular.ttf);
+    }
+    @font-face {
+      font-family: 'Warnock Pro';
+      src: url(./fonts/WarnockPro-Regular.otf);
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      src: url(./fonts/JetBrainsMono-Regular.ttf);
+    }
+  
+    .font-features {
+      font-family: 'Warnock Pro';
+    }
+  
+    .demo {
+      flex: 1;
+    }
+  
+    .code-container {
+      white-space: pre-wrap;
+      text-align: left;
+      outline: none;
+      font-size: .8em;
+    }
+  
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .serif {
+      font-family: 'Merriweather', serif;
+    }
+  
+    .sans-serif {
+      font-family: 'Montserrat Alternates', sans-serif;
+    }
+  
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  
+    .text {
+      font-family: 'Dancing Script';
+    }
+  
+    .font {
+      font-family: 'JetBrains Mono', 'Pingfang SC', 'Microsoft YaHei'
+    }
+
+    img {
+      box-shadow: 0 20px 35px -20px black;
+    }
+  </style>
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">关于字体的那些事</div>
+      </section>
+
+      <!-- intro -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">Serif · Sans Serif · Monospace</div>
+      </section>
+      <section data-background-color="#272a36">
+        <p>
+          衬线字体（Serif），是在字的笔画开始、结束的地方有额外的装饰，而且笔画的粗细会有所不同。
+        </p>
+        <p class="serif fragment">Almost before we knew it, we had left the ground.</p>
+        <aside class="notes">
+          中文字体中的宋体就是一种最标准的衬线字体（从严禁角度来讲，只有西文字体有
+          serif 和 sans-serif 之分，中文字体有宋体、黑体、楷体、仿宋等风格之分）
+        </aside>
+      </section>
+      <section data-background-color="#272a36">
+        <p>
+          无衬线字体（Sans-serif）专指西文中没有衬线的字体。与衬线字体相反，该类字体通常是机械的和统一线条的，它们往往拥有相同的曲率，笔直的线条，锐利的转角。
+        </p>
+        <p class="sans-serif fragment">
+          Almost before we knew it, we had left the ground.
+        </p>
+        <aside class="notes">
+          与汉字字体中的黑体相对应。
+        </aside>
+      </section>
+      <section data-background-color="#272a36" data-markdown="">
+        <textarea data-template>
+                等宽字体（Monospace）是指字符宽度相同的字体，常见于代码片段中：`<code></code>`.
+                ```js
+                const data = new Uint8Array(Buffer.from('Hi Node.js'));
+                fs.writeFile('message.txt', data, (err) => {
+                  if (err) throw err;
+                  console.log('The file has been saved!');
+                });
+                ```
+               </textarea>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="font-features demo">
+            <p>
+            <p class="text web">Hi, Web</p>
+            <p class="text go">Hi, Go</p>
+            <p class="text sql">Hi, Sql</p>
+            </p>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .web {
+              /* font-family: ; */
+            }
+
+            .go {
+              /* font-family: ; */
+            }
+
+            .sql {
+              /* font-family: ; */
+            }
+          </style>
+        </div>
+      </section>
+      <!-- intro -->
+
+      <!-- font-weight -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">font-weight 设置无效</div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class="weight lighter">Today is Friday</p>
+            <p class="weight normal">Today is Friday</p>
+            <p class="weight bold">Today is Friday</p>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .weight {
+              font-family: 'Courier New';
+            }
+
+            .lighter {
+              font-weight: lighter;
+            }
+
+            .normal {
+              font-weight: normal;
+            }
+
+            .bold {
+              font-weight: bold;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class="weight lighter-num">Today is Friday</p>
+            <p class="weight normal-num">Today is Friday</p>
+            <p class="weight bold-num">Today is Friday</p>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .weight {
+              font-family: 'Courier New';
+            }
+
+            .lighter-num {
+              font-weight: 100;
+            }
+
+            .normal-num {
+              font-weight: 400;
+            }
+
+            .bold-num {
+              font-weight: 700;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <img src="./assets/weight-1.png" alt="">
+      </section>
+      <section data-background-color="#272a36" style="font-size: .8em;" data-markdown>
+        <textarea data-template>
+                - 如果指定的权重值在 400 和 500 之间（包括 400 和 500）
+                  - 按升序查找指定值与 500 之间的可用权重；
+                  - 如果未找到匹配项，按降序查找小于指定值的可用权重；
+                  - 如果未找到匹配项，按升序查找大于 500 的可用权重。
+      
+                - 如果指定值小于 400，按降序查找小于指定值的可用权重。 如果未找到匹配项，按升序查找大于指定值的可用权重（先尽可能的小，再尽可能的大）。
+                - 如果指定值大于 500，按升序查找大于指定值的可用权重。 如果未找到匹配项，按降序查找小于指定值的可用权重（先尽可能的大，再尽可能的小）。
+              </textarea>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo"">
+                  <p class=" variant">Today is Friday</p>
+          </div>
+          <style class="code-container" contenteditable="" style="display: block">
+            .variant {
+              font-family: Montserrat;
+              font-weight: normal;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36" style="font-size: .9em;" data-markdown>
+        <textarea data-template data-markdown>
+          ```css
+          /* montserrat-400normal - latin */
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 400;
+            src:
+              local('Montserrat Regular '),
+              local('Montserrat-Regular'),
+              url('./files/montserrat-latin-400.woff2') format('woff2'),
+              url('./files/montserrat-latin-400.woff') format('woff');
+          }
+          ```
+        </textarea>
+      </section>
+      <section data-background-color="#272a36" data-markdown="" style="font-size: .6em;">
+        <textarea data-template="">
+          - .ttf (TrueType) 是 mac 系统和 window 系统用的最广泛的字体，一般从网上下载的字体文件都是 ttf 格式，可直接安装至系统
+
+          - .otf (OpenType) 随着计算机的发展，排版技术上需要更加具有表现力的字体，Adobe 和微软合作开发了一款新的字体
+          - .woff (Web Open Font Format) 可以看作是 ttf 的再封装，加入了压缩和字体来源信息，通常比 ttf 小 40%。也是当前 web 字体的主流格式
+          - .woff2 (Web Open Font Format 2.0) 加强了字体的压缩比，相同字体内容下，woff2 比 woff 要小 20% 到 30%
+        </textarea>
+      </section>
+      <section data-background-color="#272a36" style="font-size: .9em;" data-markdown>
+        <textarea data-template data-markdown>
+          ```css
+          /* montserrat-100normal - latin */
+          @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 100;
+            src:
+              local('Montserrat Thin '),
+              local('Montserrat-Thin'),
+              url('./files/montserrat-latin-100.woff2') format('woff2'),
+              url('./files/montserrat-latin-100.woff') format('woff'); 
+          }    
+          ```
+        </textarea>
+      </section>
+      <section data-background-color="#272a36" data-markdown="">
+        <textarea data-template="">
+          - Thin
+          - Extra-light
+          - Light
+          - Regular
+          - Medium
+          - Semi-bold
+          - Bold
+          - Extra-bold 
+          - Black
+        </textarea>
+      </section>
+      <!-- font-weight -->
+
+      <!-- font-style -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">font-style</div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class=" oblique">Today is Friday</p>
+          </div>
+          <style class="code-container" contenteditable="" style="display: block">
+            .oblique {
+              font-family: Warnock Pro;
+              font-style: normal;
+            }
+          </style>
+        </div>
+      </section>
+      <!-- font-style -->
+
+      <!-- font-display -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">font-display</div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class="display">Today is Friday</p>
+          </div>
+          <style class="code-container" contenteditable="" style="display: block; font-size: .5em;">
+            @font-face {
+              font-family: 'Shadows Into Light';
+              font-display: auto;
+              /* src: url(https://fonts.gstatic.com/s/shadowsintolight/v10/UqyNK9UOIntux_czAvDQx_ZcHqZXBNQzdcD55TecYQ.woff2) format('woff2'); */
+            }
+
+            .display {
+              font-family: Shadows Into Light;
+            }
+          </style>
+        </div>
+      </section>
+      <!-- font-display -->
+
+      <!-- unicode-range -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">unicode-range</div>
+      </section>
+      <section data-background-color="#272a36">
+        <p class="font">Hello, 各位同学</p>
+        <pre><code style="font-size: .8em;">
+          .font {
+            font-family: 'JetBrains Mono', 'Pingfang SC', 'Microsoft YaHei'
+          }
+         </code></pre>
+      </section>
+      <section data-background-color="#272a36" data-markdown="">
+        <textarea data-template="">
+          - 中英文混排
+          
+          - 中文内容中「部分中文字符」做特殊字体处理
+          - 英文内容中「部分字符」做特殊字体处理
+        </textarea>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class="combine">海克斯科技GLP-800</p>
+          </div>
+          <style class="code-container" contenteditable="" style="display: block">
+            .combine {
+              font-family: TT;
+            }
+
+            @font-face {
+              font-family: TT;
+              src: url(./fonts/ZCOOLXiaoWei-Regular.ttf);
+              unicode-range: U+4E00–9FD5
+            }
+
+            @font-face {
+              font-family: TT;
+              src: url(./fonts/Merriweather-Regular.ttf)
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <p>年轻人“耗子尾汁”</p>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="demo">
+            <p class="emphasize fragment">年轻人“耗子尾汁”</p>
+          </div>
+          <style class="code-container" contenteditable="" style="display: block; font-size: .8em;">
+            @font-face {
+              font-family: quote;
+              src: url(./fonts/StalinistOne.ttf);
+              unicode-range: U+201C, U+201D;
+            }
+
+            .emphasize {
+              font-family: quote;
+            }
+          </style>
+        </div>
+      </section>
+      <!-- unicode-range -->
+
+
+      <!-- variable-font -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">Variable font</div>
+      </section>
+      <section data-background-color="#272a36">
+        <h3>静态字体</h1>
+          <p>过去，一个字体家族往往由大量独立字体文件组成，每个字体文件都代表某一特定的宽度/字重/样式的组合。</p>
+          <aside class="notes">
+            因此你会看到有单独的字体文件叫做“Roboto Regular”、“Roboto Bold”，或是“Roboto Bold Italic”——这意味着你可能需要20或30个不同的字体文件才能算是有了一整个字体家族（
+          </aside>
+      </section>
+      <section data-background-color="#272a36" style="font-size: .8em;">
+        <p>假设在纯文本页面中用一个字体来展示：常规、细体，极细体。</p>
+        <p class="fragment" style="font-family: 'Josefin Sans'; font-weight: 400;">Title</p>
+        <p class="fragment" style="font-family: 'Josefin Sans'; font-weight: 300;">Title</p>
+        <p class="fragment" style="font-family: 'Josefin Sans'; font-weight: 100;">Title</p>
+        <p class="fragment">你至少需要三个字体文件。</p>
+        <aside class="notes">
+          如果你想添加更多的字重，比如让题注更轻或让额外强调的地方更重，意味着你需要更多文件。
+          这就导致了更多大量 HTTP 请求的产生，同时也需要下载更多的数据（通常每个文件至少有 20k 或更多）。
+        </aside>
+      </section>
+      <section data-background-color="#272a36" style="font-size: .8em;">
+        <p>
+          可变字体（Variable fonts）是 OpenType 字体规范上的演进，它允许将同一字体的多个变体统合进单独的字体文件中，从而无需再将不同字宽、字重或不同样式的字体分割成不同的字体文件。
+        </p>
+        <p class="fragment">你只需通过 CSS 与一行 @font-face 引用，即可获取包含在这个单一文件中的各种字体变体。
+        </p>
+      </section>
+      <section data-background-color="#272a36">
+        <img src="https://foxdaxian.github.io/assets/02_variableFonts/static-font-files-vs-variable-font-files.png"
+          alt="">
+      </section>
+      <section data-background-color="#272a36">
+        <h3>可变轴</h3>
+        <p class="fragment">注册轴</p>
+        <p class="fragment">自定义轴</p>
+        <aside class="notes">
+          可变字体新格式的核心是可变轴的概念，其描述了字体设计中某一特性的允许变化范围。
+          例如‘字重轴’描述了字体的粗细；“宽度轴”描述了字体的宽窄；“斜体轴”描述是否使用斜体字形并且可相应地开关；等。请注意，轴既可以是范围选择又可以是开关选择。字重可能在1-999之间，而斜体可能只是简单的0或1（关闭或打开）。
+          如规范中所定义，存在两种变形轴，注册轴和自定义轴：
+
+          注册轴最为常见，常见到制定规范的作者认为有必要进行标准化。 目前注册的五个轴是字重，宽度，倾斜度，斜体和光学尺寸。 W3C已经将它们映射到现有的CSS属性，并在一个案例中引入了一个新的属性，您将在下面看到。
+
+          自定义轴实际上是无限的：字体设计师可以定义和界定他们喜欢的任何轴
+        </aside>
+      </section>
+      <section data-background-color="#272a36">
+        <table style="font-size: .6em;">
+          <thead>
+            <tr>
+              <th>注册轴</th>
+              <th>CSS 属性</th>
+              <th>常见值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>'wght'</td>
+              <td>font-weight</td>
+              <td>1 - 1000 之间的任何数字都是有效的</td>
+            </tr>
+            <tr>
+              <td>'wdth'</td>
+              <td>font-stretch</td>
+              <td>任何大于 0 的数字在技术上都是有效的</td>
+            </tr>
+            <tr>
+              <td>'ital'</td>
+              <td>font-style: italic</td>
+              <td>0 或 1</td>
+            </tr>
+            <tr>
+              <td>'slnt'</td>
+              <td>font-style: oblique [angle] </td>
+              <td>-90 - 90 度的任何值都是有效的</td>
+            </tr>
+            <tr>
+              <td>'opsz'</td>
+              <td>font-optical-sizing</td>
+              <td>根据 font-size 自动应用</td>
+            </tr>
+          </tbody>
+        </table>
+        <pre class="fragment">
+          <code>
+            .font{
+              font-weight: 375;
+              font-variation-settings: 'wght' 375;
+            }
+          </code>
+        </pre>
+        <aside class="notes">
+          视觉尺寸是指基于物理尺寸改变字形的整体笔画厚度的做法。
+        </aside>
+      </section>
+      <section data-background-color="#272a36">
+        <a style="text-decoration: underline" href="https://v-fonts.com/" target="__blank">v-fonts
+        </a><br>
+        <a style="text-decoration: underline" href="https://www.axis-praxis.org/specimens/__DEFAULT__"
+          target="__blank">Axis-Praxis
+        </a>
+      </section>
+      <!-- variable-font -->
+
+
+
+
+
+      <!-- font-features -->
+      <section data-background-color="#272a36">
+        <div class="r-fit-text">font-feature-settings</div>
+      </section>
+      <section data-background-color="#272a36">
+        <p>
+          font-feature-settings 属性用于控制 OpenType 字体中的高级印刷功能。
+        </p>
+        <p>
+          该属性是一个比较偏底层的功能接口，用于解决设置
+          OpenType 字体某些特性的特殊功能需求。
+        </p>
+        <aside class="notes">
+          我的理解是它可针对 OpenType 字体做一些个性化设置，不同的字体能设置的 feature 属性不尽相同。
+        </aside>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="font-features demo">
+            <div class="of-sinf">
+              CH<i class="of-sinf orange">3</i>CH<i class="of-sinf orange">2</i>OH
+            </div>
+            <div class="of-zero">0 <i>0</i></div>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .of-sinf i {
+              font-feature-settings: '';
+              color: #ff9d00;
+            }
+
+            .of-zero i {
+              font-feature-settings: '';
+              color: #00af6c;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="font-features demo">
+            <div class="of-frac"><i>1/2</i> of water</div>
+            <div class="of-sups">x<i>2</i>+y<i>2</i> = 1</div>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .of-frac i {
+              font-feature-settings: '';
+              color: #e6335a;
+            }
+
+            .of-sups i {
+              font-feature-settings: '';
+              color: #7579e7;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="font-features demo">
+            <div class="of-smcp">
+              C<i>hanging</i> <i>case to</i> S<i>mall</i> C<i>aps</i>.
+            </div>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .of-smcp i {
+              font-feature-settings: '';
+              color: #f4abc4;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container">
+          <div class="font-features demo">
+            <div class="of-liga">
+              Di<i>ff</i>erent <i>fi</i>rst A<i>fl</i>iction a<i>ffi</i>davit <i>Th</i>ere
+            </div>
+          </div>
+          <style class="code-container fragment" contenteditable="" style="display: block">
+            .of-liga {
+              font-feature-settings: 'liga' 0;
+            }
+            .of-liga i{
+              color: #ff4b5c;
+            }
+          </style>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <div class="container" style="flex-direction: column;">
+          <div class="demo">
+            <div>
+              >= => -> ~> <==>
+                <| <> ++ !== ***
+            </div>
+            <div class="ligature fragment" data-fragment-index="2">
+              >= => -> ~> <==>
+                <| <> ++ !== ***
+            </div>
+            <style class="code-container fragment" data-fragment-index="1" contenteditable="" style="display: block">
+              .ligature {
+                font-family: 'Cascadia Code';
+                color: #f1fa8c;
+              }
+            </style>
+          </div>
+        </div>
+      </section>
+      <section data-background-color="#272a36">
+        <a style="text-decoration: underline" href="https://sparanoid.com/lab/opentype-features/">The Complete CSS Demo
+          for OpenType Features</a>
+      </section>
+
+      <!-- font-features -->
+
+      <section data-background-color="#272a36">
+        <a style="text-decoration: underline" href="https://caraya.github.io/vfonts-demo/" target="__blank">vfonts-demo
+        </a><br><br>
+        <a style="text-decoration: underline" href="https://mp.weixin.qq.com/s/WJE7KgiOpPJMCpdcJdy30A">斗鱼关注人数爬取 ── 字体反爬的攻与防</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      controls: false,
+      progress: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+    });
+  </script>
+</body>
+
+</html>
